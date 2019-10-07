@@ -1,11 +1,17 @@
 import React from 'react'
-import {View,Text,TextInput,StyleSheet} from 'react-native'
-import {Feather, FontAwesome} from '@expo/vector-icons'
-const Searchbar = () =>{
+import {View,TextInput,StyleSheet} from 'react-native'
+import {Feather} from '@expo/vector-icons'
+const Searchbar = (props) =>{
     return (
         <View style={styles.textInput}>
             <Feather name="search" style={styles.iconStyle} size={30}/>
-            <TextInput style={styles.input} placeholder='Search'/>
+            <TextInput style={styles.input} 
+            autoCapitalize="none"
+            autoCorrect={false}
+            value={props.term}
+            onChangeText={(newTern=>props.onTermChange(newTern))}
+            placeholder='Search'
+            onEndEditing={()=> props.onTermSubmit()}/>
         </View>
     )
 }
