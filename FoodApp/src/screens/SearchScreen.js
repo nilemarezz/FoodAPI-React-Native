@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from "react-native";
 import SearchBar from "../Components/Searchbar";
 import SearchItem from "../api/SearchItem";
 import ResultList from "../Components/ResultList";
-const SearchScreen = (props) => {
+const SearchScreen = () => {
   const [term, setTerm] = useState("");
   const [result, setResult] = useState([]);
   const [errMsg, seterrMsg] = useState("");
@@ -29,6 +29,7 @@ const SearchScreen = (props) => {
   useEffect(() => {
     defaultItem();
   }, []);
+  
   return (
     <View style={{ marginLeft: 15, flex: 1 }}>
       <SearchBar
@@ -39,22 +40,10 @@ const SearchScreen = (props) => {
       {errMsg ? <Text>Something went wrong</Text> : null}
 
       <ScrollView>
-        <ResultList
-          header="Cost Effective"
-          result={filterPrice(2)}
-          navigation={props.navigation}
-        />
-        <ResultList
-          header="Big Price"
-          result={filterPrice(3)}
-          navigation={props.navigation}
-        />
+        <ResultList header="Cost Effective" result={filterPrice(2)} />
+        <ResultList header="Big Price" result={filterPrice(3)} />
 
-        <ResultList
-          header="Big Spender"
-          result={filterPrice(4)}
-          navigation={props.navigation}
-        />
+        <ResultList header="Big Spender" result={filterPrice(4)} />
       </ScrollView>
     </View>
   );
