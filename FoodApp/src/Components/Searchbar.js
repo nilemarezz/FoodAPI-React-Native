@@ -20,9 +20,10 @@ const styles = StyleSheet.create({
         backgroundColor:'#F0EEEE',
         height:40,
         borderRadius:5,
-        marginHorizontal:15,
+        marginHorizontal:8,
         flexDirection:'row',
-        marginTop:15
+        marginTop:15,
+        marginBottom:5
     },
     input:{
        fontSize:18,
