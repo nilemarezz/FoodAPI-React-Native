@@ -1,14 +1,14 @@
 import React from "react";
 import {
   View,
-  ScrollView,
+  TouchableOpacity,
   Text,
   StyleSheet,
   FlatList,
   Image
 } from "react-native";
 
-const ResultList = ({ result, header }) => {
+const ResultList = ({ result, header , navigation }) => {
   return (
     <View style={{marginBottom:15}}>
      
@@ -20,9 +20,11 @@ const ResultList = ({ result, header }) => {
         renderItem={({ item }) => {
           return (
             <View style={{marginLeft:8,marginTop:10}}>
+                <TouchableOpacity onPress={()=>navigation.navigate('Detail')}>
               <Image style={styles.img} source={{ uri: item.image_url }} />
               <Text style={{ fontWeight: "bold" }}>{item.name}</Text>
               <Text>City : {item.city}</Text>
+              </TouchableOpacity>
             </View>
           );
         }}
